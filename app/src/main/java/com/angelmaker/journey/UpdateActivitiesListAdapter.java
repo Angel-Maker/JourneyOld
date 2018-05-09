@@ -58,7 +58,7 @@ public class UpdateActivitiesListAdapter extends RecyclerView.Adapter<UpdateActi
         if (activities != null)
         {
             final ActivityInstance current = activities.get(position);
-            holder.activityItemView.setText("   " + current.getActivity());
+            holder.activityItemView.setText(current.getActivity());
 
             holder.removeBtn.setOnClickListener(new View.OnClickListener()
             {
