@@ -51,5 +51,4 @@ public class UpdateActivities extends AppCompatActivity {
         Intent newActivity = new Intent(this, NewActivity.class);
         startActivity(newActivity);
     }
-
 }
