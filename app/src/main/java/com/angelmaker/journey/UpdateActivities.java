@@ -16,7 +16,6 @@ import java.util.List;
 
 public class UpdateActivities extends AppCompatActivity {
 
-    private TextView ActivitiesTV;
     private ActivityViewModel activityViewModel;
 
     @Override
@@ -48,14 +47,9 @@ public class UpdateActivities extends AppCompatActivity {
     }
 
 
-
-
-
-
     public void newActivityBtn(View view) {
         Intent newActivity = new Intent(this, NewActivity.class);
         startActivity(newActivity);
-        //startActivityForResult(newActivity, REQUEST_CODE_NEW_ACTIVITY);
     }
 
 }
