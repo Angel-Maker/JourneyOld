@@ -40,7 +40,7 @@ public class UpdateActivitiesListAdapter extends RecyclerView.Adapter<UpdateActi
         public void onBindViewHolder(ActivityViewHolder holder, int position) {
             if (activities != null) {
                 ActivityInstance current = activities.get(position);
-                holder.activityItemView.setText(current.getActivity());
+                holder.activityItemView.setText("   " + current.getActivity());
             } else {
                 // Covers the case of data not being ready yet.
                 holder.activityItemView.setText("No Activities");
