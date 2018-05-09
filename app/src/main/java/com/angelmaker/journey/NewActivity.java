@@ -1,9 +1,6 @@
 package com.angelmaker.journey;
 
-import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
-import android.arch.persistence.room.Room;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class NewActivity extends AppCompatActivity {
-    public static final String EXTRA_REPLY = "com.angelmaker.journey.activitylistsql.REPLY";
+
     EditText activityNameET;
 
     private ActivityViewModel activityViewModel;
@@ -28,22 +25,20 @@ public class NewActivity extends AppCompatActivity {
 
 
         final Button button = findViewById(R.id.SubmitBtn);
-        button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                //Intent replyIntent = new Intent();
+            public void onClick(View view)
+            {
 
                 if (TextUtils.isEmpty(activityNameET.getText())) {
-                    //setResult(RESULT_CANCELED, replyIntent);
                 } else {
                     String activityName = activityNameET.getText().toString();
 
                     ActivityInstance newActivity = new ActivityInstance(activityName);
                     activityViewModel.insert(newActivity);
-
-                    //replyIntent.putExtra(EXTRA_REPLY, word);
-                    //setResult(RESULT_OK, replyIntent);
                 }
+
                 finish();
             }
         });

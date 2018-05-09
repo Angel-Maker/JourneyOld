@@ -2,6 +2,7 @@ package com.angelmaker.journey;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
@@ -17,6 +18,9 @@ public interface ActivityDao {
 
     @Insert    //There is also @Delete   and   @Update
     void insert(ActivityInstance activityInstance);
+
+    @Delete
+    void delete(ActivityInstance activityInstance);
 
     @Query("DELETE FROM activities_table")
     void deleteAll();

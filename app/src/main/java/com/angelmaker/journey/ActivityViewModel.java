@@ -23,5 +23,6 @@ public class ActivityViewModel extends AndroidViewModel{
             LiveData<List<ActivityInstance>> getAllActivites() {return allActivities;}
 
             public void insert(ActivityInstance activityInstance) {repository.insert(activityInstance);}
+            public void delete(ActivityInstance activityInstance) {repository.delete(activityInstance);}
 }
 

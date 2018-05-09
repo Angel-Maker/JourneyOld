@@ -44,6 +44,26 @@ public class ActivityRepository {
             return null;
         }
     }
+
+
+    public void delete (ActivityInstance activityInstance) {
+        new deleteAsyncTask(activityDao).execute(activityInstance);
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<ActivityInstance, Void, Void> {
+
+        private ActivityDao asyncTaskDao;
+
+        deleteAsyncTask(ActivityDao dao) {
+            asyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final ActivityInstance... params) {
+            asyncTaskDao.delete(params[0]);
+            return null;
+        }
+    }
 }
 
 

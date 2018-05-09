@@ -23,19 +23,21 @@ public class UpdateActivities extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_activities);
 
+        //Set viewmodel for database manipulation
+        activityViewModel = ViewModelProviders.of(this).get(ActivityViewModel.class);
+
         //RecyclerView Setup
         RecyclerView recyclerView = findViewById(R.id.activitiesRV);
         final UpdateActivitiesListAdapter adapter = new UpdateActivitiesListAdapter(this);
+        adapter.setViewModel(activityViewModel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        activityViewModel = ViewModelProviders.of(this).get(ActivityViewModel.class);
 
         activityViewModel.getAllActivites().observe(this, new Observer<List<ActivityInstance>>() {
             @Override
             public void onChanged(@Nullable final List<ActivityInstance> activities) {
-                // Update the cached copy of the words in the adapter.
-                adapter.setActivities(activities);
+                //Executed whenever the observed object changes
+                adapter.setActivities(activities);   // Update the cached copy of the words in the adapter.
             }
         });
     }
