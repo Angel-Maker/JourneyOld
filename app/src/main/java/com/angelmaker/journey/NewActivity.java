@@ -30,7 +30,6 @@ public class NewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-
                 if (TextUtils.isEmpty(activityNameET.getText())) {
                 } else {
                     String activityName = activityNameET.getText().toString();
